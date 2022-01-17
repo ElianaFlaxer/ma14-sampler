@@ -1,5 +1,7 @@
 package workspace.eliana.sampler.write;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import workspace.eliana.sampler.ConfigLoader;
 
@@ -8,8 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public abstract class JsonWriter<T> implements FileTypeWriter<T> {
-
+public class JsonWriter<T> implements FileTypeWriter<T> {
 
     public void writeToFiles(List<List<T>> listOflists, String beginPath) throws IOException {
 
@@ -19,10 +20,12 @@ public abstract class JsonWriter<T> implements FileTypeWriter<T> {
         {
             File file = new File(beginPath+(i+1)+jsonEnd);
             FileWriter fw = new FileWriter(file);
+
             ObjectMapper objectMapper = new ObjectMapper();
 
             for(Object obj : listOflists.get(i))
             {
+                objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
                 fw.write(objectMapper.writeValueAsString(obj));
                 fw.write(System.lineSeparator());
             }

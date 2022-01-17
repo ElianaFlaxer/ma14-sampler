@@ -3,6 +3,8 @@ import workspace.eliana.sampler.objects.Report;
 import workspace.eliana.sampler.read.CsvReader;
 import workspace.eliana.sampler.read.FileTypeReader;
 import workspace.eliana.sampler.read.ReportCsvReader;
+import workspace.eliana.sampler.write.FileTypeWriter;
+import workspace.eliana.sampler.write.JsonWriter;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +28,8 @@ public class Main {
 
         System.out.println(new ConfigLoader().load().getProperty("maxRecordsNum"));
 
+        FileTypeWriter fw = new JsonWriter();
+        fw.writeToFiles(listOfLists,new ConfigLoader().load().getProperty("reportsFilePath"));
 
 
         //FileTypeWriter fw = new ReportJsonWriter();
