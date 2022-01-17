@@ -5,7 +5,7 @@ public class Report {
     private String mdaCode;
     private String idNum;
     private String idType;
-    private String supplierCode;
+    //private String supplierCode;
     private String firstName;
     private String lastName;
     private String city;
@@ -16,14 +16,14 @@ public class Report {
     private String takeDate;
     private String resultDate;
 
-    public Report(String mdaCode, String idNum, String idType, String supplierCode,
+    public Report(String mdaCode, String idNum, String idType,
                   String firstName, String lastName, String city, String street,
                   String buildingNumber, String barcode, String getDate, String takeDate, String resultDate)
     {
         this.mdaCode=mdaCode;
         this.idNum=idNum;
         this.idType=idType;
-        this.supplierCode=supplierCode;
+        //this.supplierCode=supplierCode;
         this.firstName=firstName;
         this.lastName=lastName;
         this.city=city;
@@ -41,7 +41,7 @@ public class Report {
                 "mdaCode='" + mdaCode + '\'' +
                 ", idNum='" + idNum + '\'' +
                 ", idType='" + idType + '\'' +
-                ", supplierCode='" + supplierCode + '\'' +
+          //      ", supplierCode='" + supplierCode + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", city='" + city + '\'' +
