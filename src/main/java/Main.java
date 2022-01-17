@@ -1,4 +1,6 @@
 import workspace.eliana.sampler.ConfigLoader;
+import workspace.eliana.sampler.load.Loader;
+import workspace.eliana.sampler.load.ReportJsonLoader;
 import workspace.eliana.sampler.objects.Report;
 import workspace.eliana.sampler.read.CsvReader;
 import workspace.eliana.sampler.read.FileTypeReader;
@@ -13,7 +15,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        Loader l = new ReportJsonLoader();
+        l.load("src/main/resources/madaReports.csv");
 
+        /*
         FileTypeReader fr = new ReportCsvReader("src/main/resources/madaReports.csv");
 
         List<List<Report>> listOfLists = fr.objectsByFiles();
@@ -32,6 +37,8 @@ public class Main {
         fw.writeToFiles(listOfLists,new ConfigLoader().load().getProperty("reportsFilePath"));
 
 
+
+         */
         //FileTypeWriter fw = new ReportJsonWriter();
         //ReportJsonWriter r = new ReportJsonWriter();
         //r.write();

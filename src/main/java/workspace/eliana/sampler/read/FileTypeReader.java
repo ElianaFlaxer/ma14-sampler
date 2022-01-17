@@ -31,7 +31,7 @@ public abstract class FileTypeReader<T> {
             listByFiles.add(list);
         }
 
-        listByFiles.add(allObjects.subList(numFiles*maxRecordsNum,allObjects.size()-1));
+        listByFiles.add(allObjects.subList(numFiles*maxRecordsNum,allObjects.size()));
 
         return listByFiles;
     }
