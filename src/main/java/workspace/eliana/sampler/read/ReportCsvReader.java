@@ -12,22 +12,8 @@ import java.util.List;
 
 public class ReportCsvReader extends CsvReader {
 
-    @Override
-    public List<Report> objectsFromFile() throws IOException {
-
-        BufferedReader br = new BufferedReader(new FileReader(super.fileName));
-        List<Report> reports = new ArrayList<>();
-        String line;
-        String splitBy = ",";
-
-        while ((line = br.readLine()) != null)
-        {
-            String[] allLines = line.split(splitBy);
-            Report report = createObject(allLines);
-            reports.add(report);
-        }
-
-        return reports;
+    public ReportCsvReader(String fileName) {
+        super(fileName);
     }
 
     public Report createObject(String[] rec)

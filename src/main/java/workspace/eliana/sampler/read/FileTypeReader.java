@@ -10,8 +10,15 @@ public abstract class FileTypeReader<T> {
 
     protected String fileName;
 
-    public List<List<T>> getObjectsByFiles(List<T> allObjects) throws IOException {
+    public FileTypeReader(String fileName) {
+        this.fileName=fileName;
+    }
 
+    public abstract List<T> allObjects() throws IOException;
+
+    public List<List<T>> objectsByFiles() throws IOException {
+
+        List<T> allObjects = this.allObjects();
         int maxRecordsNum = Integer.parseInt((new ConfigLoader()).load().getProperty("maxRecordsNum"));
         int numFiles = allObjects.size()/maxRecordsNum;
         int counter;
