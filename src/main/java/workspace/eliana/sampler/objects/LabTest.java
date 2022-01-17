@@ -10,13 +10,13 @@ public class LabTest {
     private String birthDate;
     private String labCode;
     private String stickerNumber;
-    private String resultTestCorna;
+    private String resultTestCorona;
     private String variant;
     private String testType;
 
     public LabTest(String idNum, String idType, String firstName, String lastName,
                    String resultDate, String birthDate, String labCode,
-                   String stickerNumber, String resultTestCorna, String variant, String testType)
+                   String stickerNumber, String resultTestCorona, String variant, String testType)
     {
         this.idNum=idNum;
         this.idType=idType;
@@ -26,7 +26,7 @@ public class LabTest {
         this.birthDate=birthDate;
         this.labCode=labCode;
         this.stickerNumber=stickerNumber;
-        this.resultTestCorna=resultTestCorna;
+        this.resultTestCorona=resultTestCorona;
         this.variant=variant;
         this.testType=testType;
     }
@@ -42,7 +42,7 @@ public class LabTest {
                 ", birthDate='" + birthDate + '\'' +
                 ", labCode='" + labCode + '\'' +
                 ", stickerNumber='" + stickerNumber + '\'' +
-                ", resultTestCorna='" + resultTestCorna + '\'' +
+                ", resultTestCorna='" + resultTestCorona + '\'' +
                 ", variant='" + variant + '\'' +
                 ", testType='" + testType + '\'' +
                 '}';
