@@ -2,14 +2,6 @@ package workspace.eliana.sampler.read;
 
 import workspace.eliana.sampler.objects.Report;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class ReportCsvReader extends CsvReader {
 
     public ReportCsvReader(String fileName) {

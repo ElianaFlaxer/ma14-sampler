@@ -16,18 +16,8 @@ public class ReportJsonLoader implements Loader{
         FileTypeReader reader = new ReportCsvReader(fileName);
 
         FileTypeWriter writer = new JsonWriter();
+
         writer.writeToFiles(reader.objectsByFiles(),
                 new ConfigLoader().load().getProperty("reportsFilePath"));
-
-
-        /*
-        FileTypeReader fr = new ReportCsvReader(fileName);
-        ReportCsvReader r = new ReportCsvReader(fileName);
-        FileTypeWriter fw = new ReportJsonWriter();
-
-        String beginPath = new ConfigLoader().load().getProperty("reportsFilePath");
-        fw.writeToFiles(fr.objectsByFiles(), beginPath);
-
-         */
     }
 }

@@ -12,6 +12,11 @@ public abstract class CsvReader<T> extends FileTypeReader{
         super(fileName);
     }
 
+    /**
+     * the function creates the object from its record in the file
+     * @param rec - the record in the file
+     * @return - returns the object itself
+     */
     public abstract T createObject(String[] rec);
 
     @Override

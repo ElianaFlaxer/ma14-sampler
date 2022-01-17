@@ -1,58 +1,13 @@
-import workspace.eliana.sampler.ConfigLoader;
 import workspace.eliana.sampler.load.Loader;
 import workspace.eliana.sampler.load.ReportJsonLoader;
-import workspace.eliana.sampler.objects.Report;
-import workspace.eliana.sampler.read.CsvReader;
-import workspace.eliana.sampler.read.FileTypeReader;
-import workspace.eliana.sampler.read.ReportCsvReader;
-import workspace.eliana.sampler.write.FileTypeWriter;
-import workspace.eliana.sampler.write.JsonWriter;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Loader l = new ReportJsonLoader();
-        l.load("src/main/resources/madaReports.csv");
-
-        /*
-        FileTypeReader fr = new ReportCsvReader("src/main/resources/madaReports.csv");
-
-        List<List<Report>> listOfLists = fr.objectsByFiles();
-
-        for( List<Report> l : listOfLists)
-        {
-            for(Report rep : l)
-            {
-                System.out.println(rep.toString());
-            }
-        }
-
-        System.out.println(new ConfigLoader().load().getProperty("maxRecordsNum"));
-
-        FileTypeWriter fw = new JsonWriter();
-        fw.writeToFiles(listOfLists,new ConfigLoader().load().getProperty("reportsFilePath"));
-
-
-
-         */
-        //FileTypeWriter fw = new ReportJsonWriter();
-        //ReportJsonWriter r = new ReportJsonWriter();
-        //r.write();
-
-        //fw.writeToFiles(r.getObjectsByFiles());
-
-        /*
-        ConfigLoader cl = new ConfigLoader();
-        cl.load();
-
-        Loader l = new ReportJsonLoader();
-        l.load("src/main/resources/madaReports.csv");
-
-         */
+        Loader loader = new ReportJsonLoader();
+        loader.load("src/main/resources/madaReports.csv");
     }
-
 }
