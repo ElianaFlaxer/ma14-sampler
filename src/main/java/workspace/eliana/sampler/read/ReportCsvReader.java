@@ -13,9 +13,9 @@ import java.util.List;
 public class ReportCsvReader extends CsvReader {
 
     @Override
-    public List<Report> objectsFromFile(String fileName) throws IOException {
+    public List<Report> objectsFromFile() throws IOException {
 
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        BufferedReader br = new BufferedReader(new FileReader(super.fileName));
         List<Report> reports = new ArrayList<>();
         String line;
         String splitBy = ",";
