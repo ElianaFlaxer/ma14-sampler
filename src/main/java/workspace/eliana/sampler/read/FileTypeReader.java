@@ -1,6 +1,7 @@
 package workspace.eliana.sampler.read;
 
 import health_care_provider.errors.InvalidIdException;
+import org.openjdk.jol.vm.VM;
 import workspace.eliana.sampler.ConfigLoader;
 
 import java.io.IOException;
@@ -29,7 +30,7 @@ public abstract class FileTypeReader<T> {
      * @return - returns the list of lists
      * @throws IOException
      */
-    
+    /*
     public List<List<T>> objectsByFiles() throws IOException, InvalidIdException {
 
         List<T> allObjects = this.allObjects();
@@ -49,8 +50,28 @@ public abstract class FileTypeReader<T> {
 
         return listByFiles;
     }
+     */
 
+    public List<List<T>> objectsByFiles() throws IOException, InvalidIdException
+    {
+        List<T> allObjects = this.allObjects();
+        int maxFileSize = Integer.parseInt((new ConfigLoader()).load().getProperty("maxFileSize"));
+        List<List<T>> listByFiles = new ArrayList<>();
+        int counter;
 
+        long objSize = VM.current().sizeOf(allObjects.get(0));
+        int numObjectsInFile = (int) (maxFileSize/objSize);
+        int numFiles = allObjects.size()/numObjectsInFile;
 
+        for(int i=0; i<numFiles ; i++)
+        {
+            counter = i*numObjectsInFile;
+            List<T> list = allObjects.subList(counter, counter+numObjectsInFile-1);
+            listByFiles.add(list);
+        }
 
+        listByFiles.add(allObjects.subList(numFiles*numObjectsInFile,allObjects.size()));
+
+        return listByFiles;
+    }
 }

@@ -13,5 +13,10 @@ public interface Loader {
      */
     public void load(String fileName) throws IOException, InvalidIdException;
 
+    /**
+     * the function loads of files that have already been read
+     * @throws IOException
+     * @throws InvalidIdException
+     */
     public void load() throws IOException, InvalidIdException;
 }

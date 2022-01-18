@@ -2,12 +2,11 @@ package workspace.eliana.sampler.load;
 
 import health_care_provider.errors.InvalidIdException;
 import workspace.eliana.sampler.ConfigLoader;
+import workspace.eliana.sampler.read.PositiveReader;
 import workspace.eliana.sampler.transform.CrossedPositivePeople;
 import workspace.eliana.sampler.write.JsonWriter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PositivePersonLoader implements Loader{
 
@@ -21,13 +20,13 @@ public class PositivePersonLoader implements Loader{
     public void load() throws IOException, InvalidIdException {
 
         CrossedPositivePeople cd = new CrossedPositivePeople();
-        List list = cd.getListOfCrossed();
 
-        List<List> listOflists = new ArrayList<>();
-        listOflists.add(list);
+        PositiveReader reader = new PositiveReader();
 
         JsonWriter writer = new JsonWriter();
+
         String path = (new ConfigLoader().load().getProperty("positiveFilePath"));
-        writer.writeToFiles(listOflists, path);
+
+        writer.writeToFiles(reader.objectsByFiles(cd.getListOfCrossed()), path);
     }
 }
