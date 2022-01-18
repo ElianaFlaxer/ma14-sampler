@@ -3,6 +3,8 @@ package workspace.eliana.sampler.write;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import workspace.eliana.sampler.ConfigLoader;
 import workspace.eliana.sampler.objects.LabTest;
+import workspace.eliana.sampler.objects.ObjectsList;
+import workspace.eliana.sampler.objects.labTestsList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -37,17 +39,15 @@ public class XmlWriter<T> implements FileTypeWriter<T>{
             File file = new File(beginPath+(i+1)+xmlEnd);
             FileWriter fw = new FileWriter(file);
 
-            ObjectMapper objectMapper = new ObjectMapper();
-
-            for(Object obj : listOfLists.get(i))
+            if(listOfLists.get(0).get(0) instanceof LabTest)
             {
+                ObjectsList list = new labTestsList(listOfLists.get(i));
                 try {
-                    fw.write(this.stringOneObj(obj));
+                    fw.write(this.stringOneObj(list));
                 } catch (JAXBException e) {
                     e.printStackTrace();
                 }
             }
-
             fw.close();
         }
     }

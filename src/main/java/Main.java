@@ -2,6 +2,11 @@ import workspace.eliana.sampler.ConfigLoader;
 import workspace.eliana.sampler.load.Loader;
 import workspace.eliana.sampler.load.ReportJsonLoader;
 import workspace.eliana.sampler.objects.LabTest;
+import workspace.eliana.sampler.read.FileTypeReader;
+import workspace.eliana.sampler.read.ReportCsvReader;
+import workspace.eliana.sampler.write.FileTypeWriter;
+import workspace.eliana.sampler.write.JsonWriter;
+import workspace.eliana.sampler.write.XmlWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -46,6 +51,16 @@ public class Main {
                 "1","1","1","1","1","1");
 
         jaxbObjectToXML(t);
+
+        /*
+        FileTypeReader reader = new ReportCsvReader("LabTests.xml");
+        FileTypeWriter writer = new JsonWriter();
+
+        writer.writeToFiles(reader.objectsByFiles(),
+                new ConfigLoader().load().getProperty("reportsFilePath"));
+        */
+
+         */
         /*
         String path = new ConfigLoader().load().getProperty("labTestsFilePath");
         String xmlEnd = new ConfigLoader().load().getProperty("xmlEnd");
