@@ -1,23 +1,19 @@
 package workspace.eliana.sampler.write;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import workspace.eliana.sampler.ConfigLoader;
 import workspace.eliana.sampler.objects.LabTest;
-import workspace.eliana.sampler.objects.ObjectsList;
-import workspace.eliana.sampler.objects.labTestsList;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import workspace.eliana.sampler.xmlConvertor.LabTestsList;
+import workspace.eliana.sampler.xmlConvertor.ObjectsList;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.List;
 
-public class XmlWriter<T> implements FileTypeWriter<T>{
+public class XmlWriter<T> implements FileTypeWriter<T>, LabTestXmlWriter{
 
+
+    /*
     public String stringOneObj(Object obj) throws JAXBException {
 
         JAXBContext jaxbContext = JAXBContext.newInstance(LabTest.class);
@@ -29,6 +25,30 @@ public class XmlWriter<T> implements FileTypeWriter<T>{
         return xmlContent;
     }
 
+
+    public void writeToFiles(List<List<T>> listOfLists, String beginPath) throws IOException {
+        String xmlEnd = new ConfigLoader().load().getProperty("xmlEnd");
+
+        for(int i = 0; i< listOfLists.size() ; i++)
+        {
+            File file = new File(beginPath+(i+1)+xmlEnd);
+            FileWriter fw = new FileWriter(file);
+
+            for(Object obj : listOfLists.get(i))
+            {
+                try {
+                    fw.write(this.stringOneObj(obj));
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                }
+            }
+            fw.close();
+        }
+    }
+
+     */
+
+
     @Override
     public void writeToFiles(List<List<T>> listOfLists, String beginPath) throws IOException {
 
@@ -38,17 +58,18 @@ public class XmlWriter<T> implements FileTypeWriter<T>{
         {
             File file = new File(beginPath+(i+1)+xmlEnd);
             FileWriter fw = new FileWriter(file);
-
+            ObjectsList list = null;
+            
             if(listOfLists.get(0).get(0) instanceof LabTest)
             {
-                ObjectsList list = new labTestsList(listOfLists.get(i));
-                try {
-                    fw.write(this.stringOneObj(list));
-                } catch (JAXBException e) {
-                    e.printStackTrace();
-                }
+                list = new LabTestsList(listOfLists.get(i));
             }
+
+            System.out.println(list.stringOfList());
+            fw.write(list.stringOfList());
+            
             fw.close();
         }
     }
+
 }

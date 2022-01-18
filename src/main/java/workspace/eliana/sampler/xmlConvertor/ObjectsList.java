@@ -1,4 +1,4 @@
-package workspace.eliana.sampler.objects;
+package workspace.eliana.sampler.xmlConvertor;
 
 import java.util.List;
 
@@ -11,5 +11,8 @@ public abstract class ObjectsList<T> {
         this.list=list;
     }
 
-    public abstract void write();
+    public List<T> getList() {
+        return list;
+    }
+    public abstract String stringOfList();
 }

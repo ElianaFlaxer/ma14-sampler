@@ -1,26 +1,26 @@
+import com.thoughtworks.xstream.XStream;
 import workspace.eliana.sampler.ConfigLoader;
+import workspace.eliana.sampler.load.LabTestXmlLoader;
 import workspace.eliana.sampler.load.Loader;
 import workspace.eliana.sampler.load.ReportJsonLoader;
 import workspace.eliana.sampler.objects.LabTest;
 import workspace.eliana.sampler.read.FileTypeReader;
-import workspace.eliana.sampler.read.ReportCsvReader;
+import workspace.eliana.sampler.read.LabTestsCsvReader;
 import workspace.eliana.sampler.write.FileTypeWriter;
-import workspace.eliana.sampler.write.JsonWriter;
 import workspace.eliana.sampler.write.XmlWriter;
+import workspace.eliana.sampler.xmlConvertor.LabTestsList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Properties;
-
+import java.util.List;
 
 
 public class Main {
 
-    private static void jaxbObjectToXML(LabTest labTest)
+    private static void jaxbObjectToXML(Object obj)
     {
         try
         {
@@ -32,7 +32,7 @@ public class Main {
 
             StringWriter sw = new StringWriter();
 
-            jaxbMarshaller.marshal(labTest, sw);
+            jaxbMarshaller.marshal(obj, sw);
 
             String xmlContent = sw.toString();
             System.out.println( xmlContent );
@@ -44,23 +44,35 @@ public class Main {
 
     public static void main(String[] args) throws IOException, JAXBException {
 
-        Loader loader = new ReportJsonLoader();
-        loader.load("src/main/resources/madaReports.csv");
+        Loader reportLoader = new ReportJsonLoader();
+        reportLoader.load("src/main/resources/madaReports.csv");
 
-        LabTest t = new LabTest("1","1","1","1","1",
-                "1","1","1","1","1","1");
-
-        jaxbObjectToXML(t);
+        Loader LabTeatLoader = new LabTestXmlLoader();
+        LabTeatLoader.load("src/main/resources/LabTests.csv");
 
         /*
-        FileTypeReader reader = new ReportCsvReader("LabTests.xml");
-        FileTypeWriter writer = new JsonWriter();
+        LabTest t1 = new LabTest("1","1","1","1","1",
+                "1","1","1","1","1","1");
 
-        writer.writeToFiles(reader.objectsByFiles(),
-                new ConfigLoader().load().getProperty("reportsFilePath"));
-        */
+        LabTest t2 = new LabTest("1","1","1","1","1",
+                "1","1","1","1","1","1");
+
+        List<LabTest> list = new ArrayList<>();
+        list.add(t1);
+        list.add(t2);
+
+        LabTestsList l = new LabTestsList(list);
+
+        objTry(list);
 
          */
+
+
+
+
+
+
+
         /*
         String path = new ConfigLoader().load().getProperty("labTestsFilePath");
         String xmlEnd = new ConfigLoader().load().getProperty("xmlEnd");
