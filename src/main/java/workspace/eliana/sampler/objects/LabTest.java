@@ -81,4 +81,17 @@ public class LabTest {
                 ", healthCareName='" + healthCareName + '\'' +
                 '}';
     }
+
+    public String getIdNum() {
+        return idNum;
+    }
+
+    public String getIdType() {
+        return idType;
+    }
+
+    public boolean isPositive()
+    {
+        return Integer.parseInt(this.resultTestCorona)==1;
+    }
 }

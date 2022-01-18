@@ -1,7 +1,5 @@
 package workspace.eliana.sampler.objects;
 
-import javax.xml.bind.annotation.XmlElement;
-
 public class PositivePerson {
 
     private String idNum;

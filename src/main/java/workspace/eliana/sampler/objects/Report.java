@@ -51,4 +51,13 @@ public class Report {
                 ", resultDate='" + resultDate + '\'' +
                 '}';
     }
+
+
+    public String getIdNum() {
+        return idNum;
+    }
+
+    public String getIdType() {
+        return idType;
+    }
 }
