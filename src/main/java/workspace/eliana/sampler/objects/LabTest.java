@@ -32,6 +32,13 @@ public class LabTest {
     @XmlElement
     private String testType;
 
+    @XmlElement
+    private String joinDate;
+    @XmlElement
+    private String healthCareId;
+    @XmlElement
+    private String healthCareName;
+
     public LabTest()
     {
 
@@ -39,7 +46,8 @@ public class LabTest {
 
     public LabTest(String idNum, String idType, String firstName, String lastName,
                    String resultDate, String birthDate, String labCode,
-                   String stickerNumber, String resultTestCorona, String variant, String testType)
+                   String stickerNumber, String resultTestCorona, String variant, String testType,
+                   String joinDate, String healthCareId, String healthCareName)
     {
         this.idNum=idNum;
         this.idType=idType;
@@ -52,6 +60,9 @@ public class LabTest {
         this.resultTestCorona=resultTestCorona;
         this.variant=variant;
         this.testType=testType;
+        this.joinDate=joinDate;
+        this.healthCareId=healthCareId;
+        this.healthCareName=healthCareName;
     }
 
     @Override
@@ -65,9 +76,12 @@ public class LabTest {
                 ", birthDate='" + birthDate + '\'' +
                 ", labCode='" + labCode + '\'' +
                 ", stickerNumber='" + stickerNumber + '\'' +
-                ", resultTestCorna='" + resultTestCorona + '\'' +
+                ", resultTestCorona='" + resultTestCorona + '\'' +
                 ", variant='" + variant + '\'' +
                 ", testType='" + testType + '\'' +
+                ", joinDate='" + joinDate + '\'' +
+                ", healthCareId='" + healthCareId + '\'' +
+                ", healthCareName='" + healthCareName + '\'' +
                 '}';
     }
 }

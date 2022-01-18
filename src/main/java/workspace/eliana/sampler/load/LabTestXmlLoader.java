@@ -1,5 +1,6 @@
 package workspace.eliana.sampler.load;
 
+import health_care_provider.errors.InvalidIdException;
 import workspace.eliana.sampler.ConfigLoader;
 import workspace.eliana.sampler.read.FileTypeReader;
 import workspace.eliana.sampler.read.LabTestsCsvReader;
@@ -12,8 +13,7 @@ public class LabTestXmlLoader implements Loader {
 
 
     @Override
-    public void load(String fileName) throws IOException
-    {
+    public void load(String fileName) throws IOException, InvalidIdException {
         FileTypeReader reader = new LabTestsCsvReader(fileName);
 
         FileTypeWriter writer = new XmlWriter();

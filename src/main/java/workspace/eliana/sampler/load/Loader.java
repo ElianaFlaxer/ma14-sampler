@@ -1,5 +1,7 @@
 package workspace.eliana.sampler.load;
 
+import health_care_provider.errors.InvalidIdException;
+
 import java.io.IOException;
 
 public interface Loader {
@@ -9,5 +11,5 @@ public interface Loader {
      * @param fileName - the name of the file to read
      * @throws IOException
      */
-    public void load(String fileName) throws IOException;
+    public void load(String fileName) throws IOException, InvalidIdException;
 }

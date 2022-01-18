@@ -1,5 +1,6 @@
 package workspace.eliana.sampler.read;
 
+import health_care_provider.errors.InvalidIdException;
 import workspace.eliana.sampler.ConfigLoader;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public abstract class FileTypeReader<T> {
      * @return - returns a list of the objects from the file
      * @throws IOException
      */
-    public abstract List<T> allObjects() throws IOException;
+    public abstract List<T> allObjects() throws IOException, InvalidIdException;
 
     /**
      * the function creates a list of lists of the objects - each sublist is a file
@@ -27,7 +28,7 @@ public abstract class FileTypeReader<T> {
      * @return - returns the list of lists
      * @throws IOException
      */
-    public List<List<T>> objectsByFiles() throws IOException {
+    public List<List<T>> objectsByFiles() throws IOException, InvalidIdException {
 
         List<T> allObjects = this.allObjects();
         int maxRecordsNum = Integer.parseInt((new ConfigLoader()).load().getProperty("maxRecordsNum"));

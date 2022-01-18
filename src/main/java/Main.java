@@ -1,4 +1,5 @@
 import com.thoughtworks.xstream.XStream;
+import health_care_provider.errors.InvalidIdException;
 import workspace.eliana.sampler.ConfigLoader;
 import workspace.eliana.sampler.load.LabTestXmlLoader;
 import workspace.eliana.sampler.load.Loader;
@@ -42,7 +43,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws IOException, JAXBException {
+    public static void main(String[] args) throws IOException, JAXBException, InvalidIdException {
 
         Loader reportLoader = new ReportJsonLoader();
         reportLoader.load("src/main/resources/madaReports.csv");

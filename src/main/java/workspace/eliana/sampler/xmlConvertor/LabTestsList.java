@@ -24,5 +24,4 @@ public class LabTestsList<T> extends ObjectsList<T> {
 
         return xml;
     }
-
 }
