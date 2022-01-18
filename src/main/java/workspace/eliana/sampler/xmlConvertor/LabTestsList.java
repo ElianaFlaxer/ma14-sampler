@@ -20,7 +20,7 @@ public class LabTestsList<T> extends ObjectsList<T> {
         xstream.alias("labTests", LabTestsList.class);
         xstream.addImplicitCollection(LabTestsList.class, "list");
 
-        String xml = xstream.toXML(this.list);
+        String xml = xstream.toXML(this);
 
         return xml;
     }
