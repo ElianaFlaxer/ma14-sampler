@@ -90,6 +90,44 @@ public class LabTest {
         return idType;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public String getLabCode() {
+        return labCode;
+    }
+
+    public String getStickerNumber() {
+        return stickerNumber;
+    }
+
+    public String getResultTestCorona() {
+        return resultTestCorona;
+    }
+
+    public String getVariant() {
+        return variant;
+    }
+
+    public String getTestType() {
+        return testType;
+    }
+
+    public String getResultDate() {
+        return resultDate;
+    }
+
+
+
     public boolean isPositive()
     {
         return Integer.parseInt(this.resultTestCorona)==1;

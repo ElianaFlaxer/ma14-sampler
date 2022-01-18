@@ -60,4 +60,29 @@ public class Report {
     public String getIdType() {
         return idType;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getBuildingNumber() {
+        return buildingNumber;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public String getResultDate() {
+        return resultDate;
+    }
+
+    public String getTakeDate() {
+        return takeDate;
+    }
+
 }
