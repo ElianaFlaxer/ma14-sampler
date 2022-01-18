@@ -1,4 +1,4 @@
-package workspace.eliana.sampler.xmlConvertor;
+package workspace.eliana.sampler.write.xmlListConvertor;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ public abstract class ObjectsList<T> {
         this.list=list;
     }
 
-    public List<T> getList() {
-        return list;
-    }
+    /**
+     * the function creates a xml string from the list of objects
+     * @return - returns the xml string
+     */
     public abstract String stringOfList();
 }

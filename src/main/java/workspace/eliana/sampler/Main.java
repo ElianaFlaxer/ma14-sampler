@@ -1,3 +1,5 @@
+package workspace.eliana.sampler;
+
 import health_care_provider.errors.InvalidIdException;
 import workspace.eliana.sampler.load.LabTestXmlLoader;
 import workspace.eliana.sampler.load.Loader;

@@ -28,7 +28,7 @@ public class LabTestsCsvReader extends CsvReader{
         String healthCareId = ""+person.getHealthCareId();
         String healthCareName = person.getHealthCareName();
 
-        return new LabTest(rec[0],rec[1],rec[2],rec[3],rec[4],rec[5],rec[6],rec[7],
+        return new LabTest(id,rec[1],rec[2],rec[3],rec[4],rec[5],rec[6],rec[7],
                 rec[8],rec[9],rec[10],joinDate,healthCareId,healthCareName);
     }
 }

@@ -11,9 +11,9 @@ import java.io.IOException;
 
 public class LabTestXmlLoader implements Loader {
 
-
     @Override
     public void load(String fileName) throws IOException, InvalidIdException {
+
         FileTypeReader reader = new LabTestsCsvReader(fileName);
 
         FileTypeWriter writer = new XmlWriter();

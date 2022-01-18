@@ -20,6 +20,5 @@ public class ConfigLoader {
         prop.load(input);
 
         return prop;
-
-        }
     }
+}

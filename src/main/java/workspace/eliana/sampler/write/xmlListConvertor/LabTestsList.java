@@ -1,4 +1,4 @@
-package workspace.eliana.sampler.xmlConvertor;
+package workspace.eliana.sampler.write.xmlListConvertor;
 
 import com.thoughtworks.xstream.XStream;
 import workspace.eliana.sampler.objects.LabTest;
