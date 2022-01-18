@@ -21,4 +21,9 @@ public class ReportJsonLoader implements Loader{
         writer.writeToFiles(reader.objectsByFiles(),
                 new ConfigLoader().load().getProperty("reportsFilePath"));
     }
+
+    @Override
+    public void load() throws IOException, InvalidIdException {
+
+    }
 }

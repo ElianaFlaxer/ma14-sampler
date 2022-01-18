@@ -12,4 +12,6 @@ public interface Loader {
      * @throws IOException
      */
     public void load(String fileName) throws IOException, InvalidIdException;
+
+    public void load() throws IOException, InvalidIdException;
 }

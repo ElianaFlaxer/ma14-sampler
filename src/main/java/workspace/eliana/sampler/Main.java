@@ -3,6 +3,7 @@ package workspace.eliana.sampler;
 import health_care_provider.errors.InvalidIdException;
 import workspace.eliana.sampler.load.LabTestXmlLoader;
 import workspace.eliana.sampler.load.Loader;
+import workspace.eliana.sampler.load.PositivePersonLoader;
 import workspace.eliana.sampler.load.ReportJsonLoader;
 import workspace.eliana.sampler.transform.CrossedData;
 import workspace.eliana.sampler.transform.CrossedPositivePeople;
@@ -20,6 +21,10 @@ public class Main {
         Loader LabTeatLoader = new LabTestXmlLoader();
         LabTeatLoader.load("src/main/resources/LabTests.csv");
 
+        Loader positiveLoader = new PositivePersonLoader();
+        positiveLoader.load();
+
+        /*
         CrossedPositivePeople cd = new CrossedPositivePeople();
         List list = cd.getListOfCrossed();
 
@@ -27,6 +32,8 @@ public class Main {
         {
             System.out.println(obj.toString());
         }
+
+         */
 
         /*
         String path = new ConfigLoader().load().getProperty("labTestsFilePath");

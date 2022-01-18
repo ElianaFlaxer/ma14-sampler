@@ -21,4 +21,9 @@ public class LabTestXmlLoader implements Loader {
         writer.writeToFiles(reader.objectsByFiles(),
                 new ConfigLoader().load().getProperty("labTestsFilePath"));
     }
+
+    @Override
+    public void load() throws IOException, InvalidIdException {
+
+    }
 }

@@ -22,12 +22,14 @@ public abstract class FileTypeReader<T> {
      */
     public abstract List<T> allObjects() throws IOException, InvalidIdException;
 
-    /**
+
+    /**FUNCTION FROM PARTS A + B
      * the function creates a list of lists of the objects - each sublist is a file
      * divided by the maximum number of lines in each file (from configurations)
      * @return - returns the list of lists
      * @throws IOException
      */
+    
     public List<List<T>> objectsByFiles() throws IOException, InvalidIdException {
 
         List<T> allObjects = this.allObjects();
@@ -47,4 +49,8 @@ public abstract class FileTypeReader<T> {
 
         return listByFiles;
     }
+
+
+
+
 }
